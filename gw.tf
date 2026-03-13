@@ -1,4 +1,4 @@
-# Internet Gaeway
+# Internet Gateway
 
 resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.main.id
@@ -17,8 +17,8 @@ resource "aws_eip" "main" {
 # NAT Gateway
 
 resource "aws_nat_gateway" "ngw" {
-  allocation_id = aws_eip.xxxx.id
-  subnet_id     = aws_subnet.web.*.id[0]
+  allocation_id = aws_eip.main.id
+  subnet_id     = aws_subnet.lb.*.id[0]
 
   tags = local.ngw_rt_tags
 

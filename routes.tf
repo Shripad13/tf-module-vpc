@@ -8,7 +8,7 @@ resource "aws_route" "default-vpc" {
 # Creates lb route table 
 
 resource "aws_route_table" "lb" {
-  vpc_id = aws_vpc.example.id
+  vpc_id = aws_vpc.main.id
 
   route {
     cidr_block                = var.default_vpc_cidr
@@ -36,7 +36,7 @@ resource "aws_route_table_association" "lb" {
 
 # Creates eks route table 
 resource "aws_route_table" "eks" {
-  vpc_id = aws_vpc.example.id
+  vpc_id = aws_vpc.main.id
 
   route {
     cidr_block     = "0.0.0.0/0"
@@ -62,7 +62,7 @@ resource "aws_route_table_association" "eks" {
 
 # Creates db route table 
 resource "aws_route_table" "db" {
-  vpc_id = aws_vpc.example.id
+  vpc_id = aws_vpc.main.id
 
 
   route {
